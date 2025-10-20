@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+class BankBalance {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double balance;
+        final double INTEREST_RATE = 0.03;  // 3% interest rate
+        int year = 0;
+        int response;
+
+        System.out.print("Enter initial bank balance > ");
+        balance = input.nextDouble();
+
+        System.out.println("Do you want to see next year's balance?");
+        System.out.print("Enter 1 for yes   or any other number for no >> ");
+        response = input.nextInt();
+
+        while (response == 1) {
+            year++;
+            balance = balance + (balance * INTEREST_RATE);
+            System.out.printf("After year %d at %.2f interest rate, balance is $%.1f\n\n",
+                              year, INTEREST_RATE, balance);
+
+            System.out.println("Do you want to see the balance at the end of another year?");
+            System.out.print("Enter 1 for yes   or any other number for no >> ");
+            response = input.nextInt();
+        }
+    }
+}
